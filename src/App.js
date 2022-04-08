@@ -1,22 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './pages/Home';
+import { Route, Link } from 'wouter';
+import Numbers from './pages/Numbers';
+import Pokemons from './pages/Pokemons';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Link to='/'>
+          <figure className='App-logo'>
+            <img src='/logo-lqn.png' alt='LQN Logo'></img>
+          </figure>
+        </Link>
+        <div className='App-links'>
+          <Link to='/numbers'>Ejercicio de lógica 1</Link>
+          <Link to='/pokemons'>Ejercicio de lógica 2</Link>
+        </div>
+        <Route 
+          component={Numbers}
+          path="/numbers"
+        />
+        <Route 
+          component={Pokemons}
+          path="/pokemons"
+        />
       </header>
     </div>
   );
