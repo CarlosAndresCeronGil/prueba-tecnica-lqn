@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Pokemons() {
     const [finalArray, setFinalArray] = useState([])
@@ -85,8 +85,7 @@ export default function Pokemons() {
   //   'sona'
   // ]
 
-  const handleSubmit = evt => {
-    evt.preventDefault()
+  useEffect(() => {
     const auxArray = []
     const lenghtAux = []
     var auxCount = 0
@@ -120,10 +119,9 @@ export default function Pokemons() {
           }
         }
     }
-  }
+  }, [])
 
   return <div>
-      <form onSubmit={handleSubmit}>
         {
             finalArray.map(singlePokemon => (
                 <p key={singlePokemon}>
@@ -131,7 +129,5 @@ export default function Pokemons() {
                 </p>
             ))
         }
-      <button>Ver lista</button>
-      </form>
   </div>;
 }
