@@ -17,8 +17,6 @@ const ALL_PEOPLE = gql`
 export default function StarWars() {
   const { data, error, loading } = useQuery(ALL_PEOPLE);
 
-  console.log(data)
-
     if(error) return <div style='color: red'>{error}</div>
 
   return (
